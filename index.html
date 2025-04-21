@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook - Robot Héroe Avanzado - Sesión 3: ¡Calidad del Núcleo – Fase 1!</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        .header { background-color: #ffa500; color: white; text-align: center; padding: 10px; } /* Orange Accent */
+        .activity { margin-bottom: 20px; }
+        .banner {
+            background-color: #ffa500; /* Orange Accent */
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            font-weight: bold;
+            /* Added Flexbox for side-by-side layout */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        /* Use details/summary for accordions */
+        details > summary {
+            list-style: none; /* Remove default triangle */
+        }
+        details > summary::-webkit-details-marker {
+            display: none; /* Remove default triangle for Chrome/Safari */
+        }
+        details > summary::marker {
+             display: none; /* Remove default triangle for Firefox */
+        }
+        /* Custom marker logic (optional) */
+        /*
+         details > summary:before {
+            content: '▶ ';
+            margin-right: 5px;
+         }
+         details[open] > summary:before {
+            content: '▼ ';
+         }
+        */
+        .content { display: block; padding: 10px; border: 1px solid #ddd; margin-top: -10px; margin-bottom: 10px; border-top: none;} /* Ensure content is visible by default */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+            vertical-align: top;
+        }
+        span[style*="color: red;"] { /* Keep red span for emphasis */
+            font-weight: bold;
+        }
+         ul, ol {
+            margin-top: 0;
+            margin-bottom: 10px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        .time-title { margin-bottom: 20px; text-align: center; font-size: 1.2em; color: #555;}
+        /* Style for Kanban icons */
+        .kanban-icon { font-size: 1.2em; margin: 0 2px; }
+        .kanban-todo { color: #f0ad4e; } /* Yellow/Orange for To Do */
+        .kanban-doing { color: #5bc0de; } /* Blue for Doing */
+        .kanban-test { color: #d9534f; } /* Red for Test */
+        .kanban-done { color: #5cb85c; } /* Green for Done */
+
+        /* Span styles for title and time in banner */
+        .activity-title {
+            flex-grow: 1; /* Allows title to take available space */
+            padding-right: 10px; /* Add some space between title and time */
+        }
+        .activity-time {
+            white-space: nowrap; /* Prevents time from wrapping */
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Playbook - Robot Héroe Avanzado - Sesión 3: ¡Calidad del Núcleo – Fase 1!</h1>
+    </div>
+    <div class="container">
+        <h2 class="time-title">Tiempo efectivo de clase: 40 minutos</h2>
+
+        <!-- Resumen de Sesión -->
+        <details id="activity-0" class="activity">
+            <summary class="banner">
+                <span class="activity-title">📝 Resumen de Sesión</span>
+                <span class="activity-time"></span>
+            </summary>
+            <div class="content">
+                <table>
+                    <tr>
+                        <td style="width: 50%; padding: 10px; border-right: 1px solid #ddd;">
+                            <strong>🎯 Objetivo de la Sesión:</strong>
+                            <ul>
+                                <li>Probar la primera parte de la funcionalidad central (núcleo) construida en Sesión 2.</li>
+                                <li>Identificar y corregir errores iniciales (debugging).</li>
+                                <li>Validar el funcionamiento básico de la primera pieza del núcleo.</li>
+                            </ul>
+                            <strong>⏱️ Duración Estimada:</strong> 40 minutos.
+                        </td>
+                        <td style="width: 50%; padding: 10px;">
+                            <strong>🔑 Entregable Clave:</strong>
+                            <ul>
+                                <li>Primera tarea del núcleo probada: movida a "¡Listo!" (✅) si pasa, o corregida y de vuelta en "Listo para Probar" (🔬) / "Haciendo" (⚙️) si falla.</li>
+                                <li>Errores (bugs) iniciales documentados y (idealmente) corregidos.</li>
+                                <li>Aprendizajes iniciales sobre la precisión/funcionamiento del robot documentados.</li>
+                            </ul>
+                            <strong>🛠️ Materiales Específicos:</strong>
+                             <ul>
+                                <li>Proyector o pantalla interactiva.</li>
+                                <li>Presentación de diapositivas (Diapositivas 1-6 propuestas).</li>
+                                <li>Tableros Kanban de cada equipo (actualizados de la Sesión 2).</li>
+                                <li>Prototipos con la primera funcionalidad núcleo lista para probar (en 🔬).</li>
+                                <li>Computadoras con software de programación y código desarrollado.</li>
+                                <li>Entorno de prueba preparado por el Tester en S2 (con materiales: reglas, marcas, objetos, etc.).</li>
+                                <li>Plan de prueba específico diseñado por el Tester en S2.</li>
+                                <li>Notas/documentación de sesiones anteriores.</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </details>
+
+        <!-- Desarrollo de la Sesión -->
+
+        <!-- Actividad 1: ¡Stand-up de Calidad Inicial! -->
+        <details id="activity-1" class="activity">
+            <summary class="banner">
+                 <span class="activity-title">✅ Actividad 1: ¡Stand-up de Calidad Inicial!</span>
+                 <span class="activity-time">⏰ Tiempo: 5 minutos</span>
+            </summary>
+            <div class="content">
+                <table>
+                    <tr>
+                        <th style="width: 50%;">Acción</th>
+                        <th style="width: 50%;">Diálogo del Maestro</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Paso 1 (1 min):</strong> Iniciar la sesión enfocada en la prueba y calidad del núcleo.
+                            <br><em>(<strong>Proyectar Diapositiva 1:</strong> Título Sesión 3 (Avanzado) + Objetivo: "¡Calidad del Núcleo – Fase 1! Objetivo: Probar funcionalidad central, identificar y corregir errores iniciales").</em>
+                        </td>
+                        <td>
+                            "¡Equipos, bienvenidos a la Sesión 3: Calidad del Núcleo – Fase 1! Hoy es el momento de la verdad para esa primera pieza del robot que construimos. Vamos a ponerla a prueba rigurosamente, encontrar qué funciona, qué no, y arreglarlo."
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Paso 2 (3 min):</strong> Realizar el "Stand-up de Calidad". Enfocarse en la tarea en "Listo para Probar".
+                            <br><em>(<strong>Proyectar Diapositiva 2:</strong> Stand-up de Calidad - Foco en columna "Listo para Probar" 🔬. Pregunta clave para Tester 🧪: ¿Cómo probarás la tarea X hoy?).</em>
+                            <br>El Tester lidera explicando el plan de prueba para la(s) tarea(s) en 🔬.
+                        </td>
+                        <td>
+                            "Iniciamos con nuestro 'Stand-up de Calidad'. Miren sus Kanbans, ¡la estrella hoy es la columna <strong class='kanban-icon kanban-test'>🔬 Listo para Probar</strong>!"
+                            <br><br>
+                            "<strong>Tester (🧪)</strong>, toma la palabra. Para la tarea (o tareas) que tenemos en <strong class='kanban-icon kanban-test'>🔬 Listo para Probar</strong>, recuérdanos brevemente:"
+                            <br>
+                            "1. ¿Exactamente qué vas a probar hoy?"
+                            <br>
+                            "2. ¿Cómo lo vas a probar? (Pasos clave, entorno preparado)"
+                            <br><br>
+                            "Asegúrate de que todo el equipo entienda cómo se verificará la calidad de esta primera pieza." <em>(Moderar la explicación del Tester).</em>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <strong>Paso 3 (1 min):</strong> Preparación final para las pruebas.
+                        </td>
+                        <td>
+                            "¡Excelente plan, Tester! Ingenieros/as, preparen el robot y el código para la prueba. Arquitectos/as T., preparen su ojo crítico para ayudar a diagnosticar si algo sale mal. ¡Listos para el primer ciclo de calidad!"
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </details>
+
+        <!-- Actividad 2: ¡Ciclo de Pruebas del Núcleo 1! -->
+        <details id="activity-2" class="activity">
+            <summary class="banner">
+                 <span class="activity-title">🔄 Actividad 2: ¡Ciclo de Pruebas del Núcleo 1!</span>
+                 <span class="activity-time">⏰ Tiempo: 30 minutos</span>
+            </summary>
+            <div class="content">
+                <table>
+                    <tr>
+                        <th style="width: 50%;">Acción</th>
+                        <th style="width: 50%;">Diálogo del Maestro</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Paso 1 (5 min):</strong> Ejecución de la primera prueba por el Tester.
+                            <br><em>(<strong>Proyectar Diapositiva 3:</strong> Ejecutando Pruebas Núcleo 1 - Rol principal: Tester 🧪. Foco: Ejecutar plan, observar, documentar fallos. Ingeniero 💻 y Arq. T. 📐 observan).</em>
+                            <br>El Tester ejecuta la prueba diseñada en S2, mientras el resto del equipo observa atentamente.
+                            <br>El Tester documenta los resultados (¿Funcionó como se esperaba? ¿Qué falló específicamente?).
+                        </td>
+                        <td>
+                            "¡Comienza el Ciclo de Pruebas del Núcleo 1!"
+                            <br><br>
+                            "<strong>Tester (🧪):</strong> ¡Adelante! Ejecuta la prueba que preparaste para la tarea en <strong class='kanban-icon kanban-test'>🔬 Listo para Probar</strong>. Sigue tus pasos cuidadosamente."
+                            <br>
+                            "<strong>Ingeniero/a (💻) y Arquitecto/a T. (📐):</strong> Observen con mucha atención. ¿El robot hace exactamente lo que se programó? ¿El sensor lee lo esperado? ¿El movimiento es preciso?"
+                            <br><br>
+                            "Tester, mientras pruebas, ve tomando notas: ¿Pasó? ¿Falló? Si falló, ¿qué ocurrió exactamente? ¿Fue un error de precisión, de lógica, algo inesperado? <span style='color: red;'>¡Documentar los fallos es clave!</span>"
+                            <br><br>
+                            <em>(Facilitar la primera ejecución de la prueba).</em>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Paso 2 (20 min):</strong> Ciclo iterativo de Corrección (Ingeniero/a) y Re-Prueba (Tester).
+                            <br><em>(<strong>Proyectar Diapositiva 4:</strong> Ciclo Corrección y Re-Prueba - Diagrama: Falla Detectada 🔬 -> Ingeniero 💻 Corrige Bug -> Tarea a 🔬 -> Tester 🧪 Re-Prueba. Repetir hasta pasar. Arq. T. 📐 apoya diagnóstico).</em>
+                            <br>Si la prueba falla, el Ingeniero/a corrige el bug reportado por el Tester. El Arq. T. ayuda si es necesario.
+                            <br>Una vez corregido, la tarea vuelve a 🔬 y el Tester re-prueba.
+                            <br>Si pasa, se mueve a ✅.
+                            <br>Facilitar este ciclo, asegurando buena comunicación y movimiento en Kanban.
+                        </td>
+                        <td>
+                            "¡Muy bien! Ahora entramos en el ciclo:"
+                            <br><br>
+                            "<strong>Si la prueba FALLÓ:</strong> Tester (🧪), explica claramente el fallo al Ingeniero/a (💻). Ingeniero/a, ¡tu turno de investigar y corregir ese bug! Arquitecto/a T. (📐), si el bug es complicado, ayuda a encontrar la causa. Una vez que el Ingeniero/a crea que lo ha solucionado, mueve la tarea de nuevo a <strong class='kanban-icon kanban-test'>🔬 Listo para Probar</strong>."
+                            <br><br>
+                            "<strong>Tester (🧪):</strong> Cuando la tarea vuelva a <strong class='kanban-icon kanban-test'>🔬 Listo para Probar</strong>, ¡vuelve a ejecutar tu prueba! ¿Se corrigió el error?"
+                            <br><br>
+                            "<strong>Si la prueba PASA (sea la primera vez o después de corregir):</strong> ¡Excelente! Tester (🧪), mueve la tarjeta a <strong class='kanban-icon kanban-done'>✅ ¡Listo!</strong>."
+                            <br><br>
+                            "¡Repitan este ciclo de probar, fallar, corregir y volver a probar hasta que la tarea funcione correctamente!"
+                            <br><br>
+                            <em>(Circular y apoyar activamente este ciclo. Asegurarse de que el Kanban se actualiza).</em>
+                            "Ingeniero/a, ¿encontraste la causa del bug?"
+                            "Tester, ¿qué pasó en esta segunda prueba?"
+                            "Arquitecto/a T., ¿esta corrección afecta algo más del diseño?"
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <strong>Paso 3 (5 min):</strong> Aplicar el Kanban Flow (Ciclo) y Refinar tareas futuras.
+                            <br><em>(<strong>Proyectar Diapositiva 5:</strong> Kanban Flow (Ciclo) y Refinamiento - Recordatorio visual: SI PASA ✅ | Si FALLA -> ⚙️. Arq. T. 📐: Revisa si corrección afecta diseño general, prepara/refina siguiente tarea del núcleo).</em>
+                            <br>Reforzar el movimiento en Kanban.
+                            <br>El Arquitecto/a T. revisa el impacto de las correcciones y prepara la siguiente tarea.
+                        </td>
+                        <td>
+                            "Recordemos el flujo esencial en nuestro Kanban:"
+                            <br><br>
+                            "-> SI PASA la prueba --> <strong class='kanban-icon kanban-done'>✅ ¡Listo!</strong>"
+                            <br>
+                            "-> Si FALLA la prueba --> Vuelve a <strong class='kanban-icon kanban-doing'>⚙️ Haciendo</strong> para corregir."
+                            <br><br>
+                            "Mientras Ingeniero/a y Tester están en este ciclo, <strong>Arquitecto/a T. (📐):</strong> piensa: ¿La corrección que se está haciendo afecta el diseño general? Y, mirando el backlog 💡, ¿cómo preparamos o refinamos la <span style='color: red;'>siguiente tarea</span> de construcción del núcleo para la próxima sesión?"
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </details>
+
+        <!-- Actividad 3: ¡Reporte de Estabilidad Inicial! -->
+        <details id="activity-3" class="activity">
+            <summary class="banner">
+                 <span class="activity-title">📊 Actividad 3: ¡Reporte de Estabilidad Inicial!</span>
+                 <span class="activity-time">⏰ Tiempo: 5 minutos</span>
+            </summary>
+            <div class="content">
+                <table>
+                     <tr>
+                        <th style="width: 50%;">Acción</th>
+                        <th style="width: 50%;">Diálogo del Maestro</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Paso 1 (3 min):</strong> Revisión final del Kanban y reflexión sobre aprendizajes.
+                            <br><em>(<strong>Proyectar Diapositiva 6:</strong> Reporte Estabilidad Inicial - Kanban final S3. Preguntas: ¿Se completó la primera tarea (✅)? ¿Qué aprendimos de las pruebas/bugs?).</em>
+                            <br>Cada equipo revisa su tablero y comparte brevemente si la tarea pasó y qué aprendieron.
+                        </td>
+                        <td>
+                            "¡Equipos, recta final de la sesión! Miremos nuestros Kanbans."
+                            <br><br>
+                            "Preguntas clave para el reporte de estabilidad inicial:"
+                            <br>
+                            "1. ¿Lograron que la primera tarea del núcleo llegara a <strong class='kanban-icon kanban-done'>✅ ¡Listo!</strong>?"
+                            <br>
+                            "2. Independientemente del resultado final, ¿qué fue lo más importante que <span style='color: red;'>aprendieron</span> de las pruebas de hoy? ¿Descubrieron algo sobre la precisión de los motores, la sensibilidad del sensor, algún bug inesperado?"
+                            <br><br>
+                            "Compartan brevemente en equipo: ¿Tarea completada? y ¿Principal aprendizaje de hoy?" <em>(Moderar puesta en común).</em>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td>
+                            <strong>Paso 2 (2 min):</strong> Cierre de la sesión y anticipación de la Sesión 4 (Construcción Núcleo Fase 2).
+                        </td>
+                        <td>
+                            "¡Gran trabajo en este primer ciclo de calidad! Probar y corregir es fundamental en la ingeniería y hoy lo han hecho como profesionales."
+                            <br><br>
+                            "Aprendimos mucho sobre cómo se comporta realmente nuestro robot. ¡Estos aprendizajes son oro!"
+                            <br><br>
+                            "En la Sesión 4, continuaremos con la '¡Construcción del Núcleo – Fase 2!'. Tomaremos la siguiente tarea del backlog que el Arquitecto/a T. ha estado preparando, y comenzaremos a construir la segunda parte de la funcionalidad central, ¡integrando lo que aprendimos hoy!"
+                            <br><br>
+                            "¡Guarden todo, código y aprendizajes! ¡Nos vemos para seguir construyendo!"
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </details>
+
+    </div> <!-- Fin del container -->
+</body>
+</html>
